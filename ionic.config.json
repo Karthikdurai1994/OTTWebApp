@@ -1,0 +1,7 @@
+{
+  "name": "ZohoOTT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
