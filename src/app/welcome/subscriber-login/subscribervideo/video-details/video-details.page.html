@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="welcome/subscriberLogin/subscribermovie"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title" *ngIf="isLoadable">{{movie.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!isLoadable" class="ion-text-center" style="margin-top: 200px">
+    <ion-spinner name="crescent" color="danger"></ion-spinner>
+  </div>
+  <div *ngIf="isLoadable">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" size-sm="6" size-xs="12">
+          <div>
+            <img [src]="movie.imageURL" />
+          </div>
+        </ion-col>
+        <ion-col size-md="6" size-sm="6" size-xs="12">
+          <ion-card style="background-color: #1b1919">
+            <ion-card-content class="ionContent">
+              <ion-item lines="none" color="dark"
+                ><h1>{{movie.name}}</h1></ion-item
+              >
+
+              <ion-item lines="none" color="dark"
+                ><h2>Language - {{movie.language}}</h2></ion-item
+              >
+              <ion-item lines="none" color="dark"
+                ><h2>Genre - {{movie.genre}}</h2></ion-item
+              >
+              <ion-item lines="none" color="dark"
+                ><h2>Year of Release - {{movie.year}}</h2></ion-item
+              >
+              <ion-item lines="none" color="dark"
+                ><h2>Rating - {{movie.rating}}</h2></ion-item
+              >
+              <ion-item lines="none" color="dark">
+                Your Rating -
+                <rating
+                  [(ngModel)]="rate"
+                  readonly="false"
+                  size="default"
+                  (ngModelChange)="onModelChange($event)"
+                >
+                </rating>
+              </ion-item>
+
+              <ion-button color="primary" expand="block"
+                ><ion-icon name="play-circle-outline" slot="start"></ion-icon
+                >Watch Movie</ion-button
+              >
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-button color="primary" expand="block"
+            ><ion-icon name="play-circle-outline" slot="start"></ion-icon>Watch
+            Movie</ion-button
+          >
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
+  </div>
+</ion-content>

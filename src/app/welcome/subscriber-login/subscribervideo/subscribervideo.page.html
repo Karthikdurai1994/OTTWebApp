@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light">DK OTT Movies</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="notifications($event)">
+        <ion-icon
+          ios="ellipsis-horizontal"
+          md="ellipsis-vertical"
+          color="light"
+        >
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button color="light">
+        <ion-select
+          placeholder="Select"
+          style="text-align: center"
+          #C
+          (ionChange)="onSort(C.value)"
+        >
+          <ion-select-option value="rating"> Sort by Rating </ion-select-option>
+          <ion-select-option value="dateAdded"
+            >Sort by Date Added</ion-select-option
+          >
+          <ion-select-option value="clear">clear</ion-select-option>
+        </ion-select>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onLogout()" color="light"> Logout </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="videos.length<=0 && isDataAvailable" style="text-align: center">
+    <h1 class="noMovie">No Movies available right now!!!</h1>
+  </div>
+  <div
+    *ngIf="!isDataAvailable"
+    class="ion-text-center"
+    style="margin-top: 200px"
+  >
+    <ion-spinner name="crescent" color="danger"></ion-spinner>
+  </div>
+  <div *ngIf="videos.length>0 && isDataAvailable">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let v of videos" size-md="2" size-sm="8" size-xs="12">
+          <ion-card class="cardo">
+            <img [src]="v.imageURL" routerLink="movie/{{v.id}}" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

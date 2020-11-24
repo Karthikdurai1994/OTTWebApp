@@ -1,0 +1,36 @@
+.title{
+    text-align: center;
+    color: whitesmoke;
+}
+ion-content {
+    ion-col {
+        display: flex;
+    }
+}
+
+ion-card{
+    width: 80%;
+    height: 130px !important;
+}
+
+img{
+   width: 100%;
+    height: 130px !important;
+   
+    
+}
+
+  h1{
+      color: whitesmoke;
+  }
+  ion-content{
+
+    --ion-background-color:#222831;
+}
+ ion-toolbar {
+     --background: #393e46;
+}
+
+ion-back-button{
+    color: whitesmoke;
+}

@@ -1,0 +1,38 @@
+.title{
+    text-align: center;
+}
+// .cardo{
+//     display: inline-block;
+//     width: 50%;
+// }
+ion-content {
+    ion-col {
+        display: flex;
+    }
+}
+
+ion-card{
+    width: 100%;
+    height: 250px !important;
+}
+
+img{
+    width: 100% !important;
+    height: 100%;
+}
+
+
+ion-select {
+
+        --placeholder-color: #fffafa;
+        --placeholder-opacity: 6;
+        background-color: #929aab;
+        justify-content: center;
+        width: 130px;
+ }
+
+ .noMovie{
+   color: whitesmoke;
+   margin-top: 220px;
+   margin-left: 50px;
+ }

@@ -1,0 +1,184 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="welcome/adminLogin/adminmovie"
+        color="light"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title" color="light">Upload Movie</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="delete()">
+        <ion-icon
+          name="trash-outline"
+          slot="icon-only"
+          color="light"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-item>
+            <ion-label position="floating" color="primary">
+              Movie Name
+            </ion-label>
+            <ion-input
+              type="text"
+              name="movieName"
+              required
+              ngModel
+              #movieName="ngModel"
+              color="light"
+            ></ion-input>
+          </ion-item>
+          <ion-item *ngIf="movieName.touched && movieName.invalid" lines="none">
+            <ion-label style="font-size: medium" color="danger"
+              >Movie Name is required</ion-label
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-item>
+            <ion-label position="floating" color="primary"
+              >Year of Release</ion-label
+            >
+            <ion-input
+              type="number"
+              name="releaseYear"
+              required
+              ngModel
+              #releaseYear="ngModel"
+              color="light"
+            ></ion-input>
+          </ion-item>
+          <ion-item
+            *ngIf="releaseYear.touched && releaseYear.invalid"
+            lines="none"
+          >
+            <ion-label style="font-size: medium" color="danger"
+              >Year of Release is required</ion-label
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-item>
+            <ion-label position="floating" color="primary">Genre</ion-label>
+            <ion-input
+              type="text"
+              name="genre"
+              required
+              ngModel
+              #genre="ngModel"
+              color="light"
+            ></ion-input>
+          </ion-item>
+          <ion-item *ngIf="genre.touched && genre.invalid" lines="none">
+            <ion-label style="font-size: medium" color="danger"
+              >Genre is required</ion-label
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-item>
+            <ion-label position="floating" color="primary">Language</ion-label>
+            <ion-input
+              type="text"
+              name="language"
+              required
+              ngModel
+              #language="ngModel"
+              color="light"
+            ></ion-input>
+          </ion-item>
+          <ion-item *ngIf="language.touched && language.invalid" lines="none">
+            <ion-label style="font-size: medium" color="danger"
+              >Language is required</ion-label
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-item>
+            <ion-label position="floating" color="primary"
+              >Rating (out of 5)</ion-label
+            >
+            <ion-input
+              type="text"
+              name="rating"
+              required
+              ngModel
+              #rating="ngModel"
+              color="light"
+            ></ion-input>
+          </ion-item>
+          <ion-item *ngIf="rating.touched && rating.invalid" lines="none">
+            <ion-label style="font-size: medium" color="danger"
+              >Rating is required</ion-label
+            >
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-item>
+            <ion-label position="floating" color="primary"
+              >Movie Upload Date</ion-label
+            >
+            <ion-datetime
+              name="uploadDate"
+              min="2020-01-01"
+              max="2025-12-31"
+              ngModel
+              required
+              style="color: whitesmoke"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <app-imagepicker
+            (imagePick)="onImagePick($event)"
+            required
+            #imagePick
+            [imageBool]="imageFlag"
+          ></app-imagepicker>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <ion-button
+            type="submit"
+            color="success"
+            expand="block"
+            [disabled]="f.invalid"
+          >
+            Click To Save
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-input
+        type="text"
+        name="imageURL"
+        ngModel
+        [(ngModel)]="imageString"
+        *ngIf="flag"
+        style="display: none"
+      ></ion-input>
+    </ion-grid>
+  </form>
+</ion-content>

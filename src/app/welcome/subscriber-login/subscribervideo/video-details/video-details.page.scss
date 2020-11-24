@@ -1,0 +1,41 @@
+.title{
+    text-align: center;
+}
+
+.ionContent{
+    text-align: center;
+    color: black;
+   
+}
+ion-rating {
+    --color: gray;
+    --color-filled: green;
+  }
+ion-item{
+   
+    text-align: center;
+}
+
+img{
+     height: 540px !important;
+     width: 100% !important;
+    text-align: center;
+}
+
+ion-card{
+    width: 100% !important;
+    height: 540px !important;
+    margin: 0;
+   
+}
+
+ion-card-content{
+     margin-top: 110px;
+     padding: 0;
+     height: 100% !important;
+}
+
+ion-col{
+    padding: 0;
+}
+

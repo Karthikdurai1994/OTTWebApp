@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="welcome" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title" color="light">Subscriber Authentcation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-grid>
+     <ion-row>
+       <ion-col size-md="6" offset-md=3>
+         <ion-list>
+           <ion-item>
+             <ion-label position="floating" color="light">Email</ion-label>
+             <ion-input type="email" name="email" ngModel required #mail="ngModel" color="light"></ion-input> 
+           </ion-item>
+           <ion-item *ngIf="(!mail.valid && mail.touched)" lines="none">
+             <ion-label color="danger">Enter a valid E-Mail Address</ion-label>
+           </ion-item>
+           <ion-item>
+             <ion-label position="floating" color="light">Password</ion-label>
+             <ion-input type="password" name="password" ngModel required minlength="6" #password="ngModel" color="light"></ion-input>
+           </ion-item>
+           <ion-item *ngIf="!password.valid && password.touched" lines="none">
+             <ion-label color="danger">Password should be atleast 6 characters long</ion-label>
+           </ion-item>
+         </ion-list>
+       </ion-col>  
+     </ion-row>
+ 
+     <ion-row>
+       <ion-col size-md="6" offset-md="3">
+         <ion-button type="button" color="primary" fill="clear" expand="block" (click)="onAuthToogle()">Switch to {{isLogin ? 'SignUp' : 'Login'}}</ion-button>
+         <ion-button type="submit" color="primary" expand="block" [disabled]="f.invalid"> {{isLogin ? 'Login' : 'SignUp'}}</ion-button>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+   </form>
+</ion-content>

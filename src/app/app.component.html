@@ -1,3 +1,34 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="main" menuId="first">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title style="color: #ff9642"><b>DK OTT</b></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item
+            lines="none"
+            routerLink="/welcome/adminLogin/admin-upload-movie"
+          >
+            <ion-icon
+              name="add-circle-outline"
+              slot="start"
+              color="light"
+            ></ion-icon>
+            <ion-label color="light">Upload Movie</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item lines="none" (click)="logout()">
+            <ion-icon name="exit" slot="start" color="light`"></ion-icon>
+            <ion-label color="light">Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
